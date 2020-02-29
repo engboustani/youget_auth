@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Str;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -13,4 +15,10 @@
 
 $router->get('/', function () use ($router) {
     return $router->app->version();
+});
+
+$router->post('/register','RegisterController@register');
+
+$router->get('/key', function() {
+    return Str::random(32);
 });
